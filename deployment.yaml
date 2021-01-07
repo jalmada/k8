@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-nginx
+  labels:
+    app: my-nginx
+    tier: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+        app: my-nginx
+    spec:
+      containers:
+      - name: my-nginx
+        image: nginx:alpine
+        livenessProbe:
+          httpGet:
+            path: /index.html
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 2
+          periodSeconds: 5
+          failureThreshold: 1

@@ -1,0 +1,6 @@
+Notes Kubernetes:
+
+-- Review Deployment Creation
+New version do not create a deployment automatically when a pod is run.
+
+What is a sidecar container? benefits?
