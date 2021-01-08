@@ -1,0 +1,12 @@
+kind: PersistanceVolumeClaim
+apiVersion: v1
+metadata:
+  name: pv-dd-account-hdd-5g
+  annotations:
+    volume.beta.kubernetes.io/storage-class: accounthdd
+specs:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    request:
+      storage: 5Gi

@@ -3,20 +3,36 @@ kind: Pod
 metadata:
   name: my-nginx
 spec:
+  volumes:
+    - name: html
+      emptyDir: {}
   containers:
   - name: my-nginx
     image: nginx:alpine
-    readinessProbe:
-      httpGet:
-        path: /index.html
-        port: 80
-      initialDelaySeconds: 2
-      periodSeconds: 5
-    livenessProbe:
-      httpGet:
-        path: /index.html
-        port: 80
-      initialDelaySeconds: 15
-      timeoutSeconds: 2
-      periodSeconds: 5
-      failureThreshold: 1
+    volumeMounts:
+      - name: html
+        mountPath: /usr/share/nginx/html
+        readOnly: true
+    #readinessProbe:
+    #  httpGet:
+    #    path: /index.html
+    #    port: 80
+    #  initialDelaySeconds: 2
+    #  periodSeconds: 5
+    #livenessProbe:
+    #  httpGet:
+    #    path: /index.html
+    #    port: 80
+    #  initialDelaySeconds: 15
+    #  timeoutSeconds: 2
+    #  periodSeconds: 5
+    #  failureThreshold: 1
+  - name: html-updater
+    image: alpine
+    command: ["/bin/sh","-c"]
+    args:
+      - while true; do date >> /html/index.html;
+          sleep 10; done
+    volumeMounts:
+      - name: html
+        mountPath: /html
