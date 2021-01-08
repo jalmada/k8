@@ -8,7 +8,7 @@ spec:
     image: alpine 
     volumeMounts:
       - name: blobdisk01
-        mountPath: /mnt/blobdisk
+        mountPath: /mnt/blobdiskf
   volumes:
   - name: blobdisk01
     persistanceVolumeClaim:
