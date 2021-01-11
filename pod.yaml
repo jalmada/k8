@@ -3,6 +3,15 @@ kind: Pod
 metadata:
   name: my-nginx
 spec:
+  envFrom:
+  - configMapRef:
+    name: app-settings
+  env:
+  - name: enemies
+    valueFrom:
+      configMapKeyRef:
+      name: app-settings
+      key: data1 
   volumes:
     - name: html
       emptyDir: {}

@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+    name: app-settings
+    labels:
+        app: app-settings
+data:
+    data1: someData
+    data2: "some text"
+    data1.data11: "nested data"
+    data1.data11.data111: someOtherData
+
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
