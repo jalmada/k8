@@ -6,3 +6,5 @@ New version do not create a deployment automatically when a pod is run.
 What is a sidecar container? benefits?
 
 github.com/kubernetes/examples
+
+https://github.com/DanWahlin/DockerAndKubernetesCourseCode
