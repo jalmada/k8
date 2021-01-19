@@ -1,0 +1,12 @@
+Docker
+
+Get diff from base image and container
+
+docker container diff <containerid> | less
+
+-- create image from a container
+docker container commit 
+
+Layers.
+
+docker container export -o <name tar file>
