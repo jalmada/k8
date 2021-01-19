@@ -9,4 +9,11 @@ docker container commit
 
 Layers.
 
+-- export contianer image to a tar file.
 docker container export -o <name tar file>
+
+-- create the image form a tar file.
+docker import <tar file name> <name to image>
+
+ARG tells docker to expect a user arg when running the contianer
+docker image build  --build-arg USER=aws -t <some tag>
