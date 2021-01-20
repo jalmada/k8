@@ -1,0 +1,62 @@
+-- Base image, always the first instruction
+
+FROM <repository> [<:tag>]
+FROM <repository> [<@digest>]
+
+digest is the sha key
+
+-- Environment variables
+
+ENV <variable> <value>
+ENV <variable=value>
+
+-- Arg instruction
+Defines a variable passed on the command line
+
+
+ARG <variable[=default_value]>
+
+-- persist in derived containers from arg trough env
+ARG VERSION
+ENV VERSION = ${VERSION:-3.5.1}
+
+
+-- run
+
+RUN <command parameter>
+RUN <["executable", "parameter"]>
+
+Exec is used when the filesystem do not have shell
+
+RUN instruction best practices.
+Do not create to many layers.
+every run instruction is a layer wich increases the size
+run the instruction in a single line using && for the shell instruction
+
+
+-- OOPY
+
+COPY <src> ... <dst>
+COPY ["<src>"... "<dst>"]
+
+Copy from the context, the path should be in the build context
+
+-- CMD 
+
+CMD <command parameter>
+CMD ["exec", "param"]
+
+Used to define a default command or an entry point.
+
+-- ENTRYPOINT
+
+ENTRYPOINT <command parameter>
+ENTRYPOINT ["exec", "param"]
+
+Define excecutable for ht econtainer
+
+
+docker container run demo >instruction to the shell? -E
+Replaces the entry point
+
+CMD plus Entry Point can pass the arguments from the CMD instruction to the Entrypoint
