@@ -60,3 +60,13 @@ docker container run demo >instruction to the shell? -E
 Replaces the entry point
 
 CMD plus Entry Point can pass the arguments from the CMD instruction to the Entrypoint
+
+-- HEALTHCHECK
+
+Defines an internal command that will check the HEALTHCHECK
+
+HEALTCHECK [options] CMD <Command>
+Runs periodically 30 sec by defaukt
+3 fails container is unealty
+
+-- 
