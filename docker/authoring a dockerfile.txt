@@ -68,5 +68,3 @@ Defines an internal command that will check the HEALTHCHECK
 HEALTCHECK [options] CMD <Command>
 Runs periodically 30 sec by defaukt
 3 fails container is unealty
-
--- 
